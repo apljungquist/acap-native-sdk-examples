@@ -31,3 +31,5 @@ jobs:
           docker cp $(docker create $imagetag):/opt/app ./build
           cd ..
           docker image rm -f $imagetag
+          sha256sum ${{ env.EXNAME }}/build/*.eap > ${{ env.EXNAME }}-${{ matrix.arch }}.eap.sha256sum
+          git diff --exit-code
