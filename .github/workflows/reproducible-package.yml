@@ -13,6 +13,9 @@ jobs:
     strategy:
       matrix:
         arch: ["armv7hf", "aarch64"]
+    env:
+      EXREPO: acap-native-examples
+      EXNAME: reproducible-package
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
@@ -48,3 +51,6 @@ jobs:
           ./reproducible_package.sh clean ${{ matrix.arch }}
 
           [ "$found_error" = n ] || exit 1
+      - name: Test reproducibility across machines
+        run: |
+          ./build-and-compare.sh ${{ matrix.arch }}

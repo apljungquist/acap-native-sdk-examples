@@ -31,3 +31,6 @@ jobs:
           docker cp $(docker create $imagetag):/opt/app ./build
           cd ..
           docker image rm -f $imagetag
+      - name: Test reproducibility across machines
+        run: |
+          ./build-and-compare.sh ${{ matrix.arch }}
