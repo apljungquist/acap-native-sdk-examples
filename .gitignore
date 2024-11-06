@@ -16,3 +16,7 @@ param.conf
 // Ignore files from eap-install.sh
 **/*var_log_messages.*
 **/.eap-install.cfg
+
+/acap-native-sdk
+/acap-native-sdk-candidate
+/.idea/
