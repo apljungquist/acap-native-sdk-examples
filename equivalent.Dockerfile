@@ -8,10 +8,12 @@ FROM rust:1.82.0-bullseye AS build
 RUN cargo install \
     --locked \
     --git https://github.com/AxisCommunications/acap-rs.git \
-    --branch bypass-eap-create \
+    --rev f9083db416997b8f48f90c8ea3eed879844b912b \
     acap-build
 
-FROM ${REPO}/${SDK}:${VERSION}-${ARCH}-ubuntu${UBUNTU_VERSION} AS final
+FROM ${REPO}/${SDK}:${VERSION}-${ARCH}-ubuntu${UBUNTU_VERSION}
+ENV SOURCE_DATE_EPOCH=0
+
 RUN find /opt/axis/acapsdk/sysroots/x86_64-pokysdk-linux/ -name acap-build -delete
 COPY --from=build /usr/local/cargo/bin/acap-build /usr/bin/
-ENV RUST_BACKTRACE=1 RUST_LOG=debug
+ENV ACAP_BUILD_IMPL=equivalent RUST_BACKTRACE=1 RUST_LOG=debug

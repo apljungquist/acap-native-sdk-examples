@@ -17,6 +17,5 @@ param.conf
 **/*var_log_messages.*
 **/.eap-install.cfg
 
-/acap-native-sdk
-/acap-native-sdk-candidate
+/acap-native-sdk-*
 /.idea/
