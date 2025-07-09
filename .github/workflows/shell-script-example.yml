@@ -27,6 +27,7 @@ jobs:
         run: |
           docker image rm -f $imagetag
           cd $EXNAME
+          ls -al
           docker build --no-cache --tag $imagetag --build-arg ARCH=${{ matrix.arch }} .
           docker cp $(docker create $imagetag):/opt/app ./build
           cd ..
