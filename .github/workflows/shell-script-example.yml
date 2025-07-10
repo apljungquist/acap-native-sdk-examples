@@ -20,7 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
-
       - name: Build ${{ env.EXNAME }} application
         env:
           imagetag: ${{ env.EXREPO }}_${{ env.EXNAME }}:${{ matrix.arch }}
@@ -33,4 +32,4 @@ jobs:
           docker image rm -f $imagetag
       - name: Test reproducibility across machines
         run: |
-          ./build-and-compare.sh ${{ matrix.arch }}
+          ./build-and-compare-one.sh ${{ matrix.arch }}

@@ -53,4 +53,4 @@ jobs:
           [ "$found_error" = n ] || exit 1
       - name: Test reproducibility across machines
         run: |
-          ./build-and-compare.sh ${{ matrix.arch }}
+          ./build-and-compare-one.sh ${{ matrix.arch }}
