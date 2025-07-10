@@ -33,3 +33,8 @@ jobs:
       - name: Test reproducibility across machines
         run: |
           ./build-and-compare-one.sh ${{ matrix.arch }}
+              - name: Archive build artifact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shell-script-example-${{ matrix.arch }}
+          path: ${{ env.EXREPO }}/build/shell_script_example_1_0_0_all.eap

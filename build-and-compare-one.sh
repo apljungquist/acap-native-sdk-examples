@@ -20,7 +20,7 @@ docker cp $(docker create $imagetag):/opt/app ./build
 docker image rm -f $imagetag
 ls -al {app,build}/
 sha256sum build/*.eap > ${arch}.sha256sum
-rm -r build/
+#rm -r build/
 cd ..
 
 git diff --exit-code
