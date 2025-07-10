@@ -13,4 +13,4 @@ COPY ./app /opt/app/
 WORKDIR /opt/app
 RUN . /opt/axis/acapsdk/environment-setup* && \
     export SOURCE_DATE_EPOCH=${TIMESTAMP} && \
-    acap-build ./
+    acap-build -a my-symlink ./
