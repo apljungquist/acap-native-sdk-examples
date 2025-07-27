@@ -8,7 +8,7 @@ FROM --platform=linux/amd64 rust:1.82.0-bullseye AS build
 RUN cargo install \
     --locked \
     --git https://github.com/AxisCommunications/acap-rs.git \
-    --rev f9083db416997b8f48f90c8ea3eed879844b912b \
+    --rev aa69b242602fa6c8f97f68efeb586b9f7569c6c0 \
     acap-build
 
 FROM ${REPO}/${SDK}:${VERSION}-${ARCH}-ubuntu${UBUNTU_VERSION}
