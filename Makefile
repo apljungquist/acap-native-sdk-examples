@@ -51,14 +51,11 @@ APPS := \
 	axparameter/build-$(ACAP_BUILD_IMPL)/_envoy \
 	axserialport/build-$(ACAP_BUILD_IMPL)/_envoy \
 	axstorage/build-$(ACAP_BUILD_IMPL)/_envoy \
-	curl-openssl/build-$(ACAP_BUILD_IMPL)/_envoy \
 	hello-world/build-$(ACAP_BUILD_IMPL)/_envoy \
 	licensekey/build-$(ACAP_BUILD_IMPL)/_envoy \
 	reproducible-package/build-$(ACAP_BUILD_IMPL)/_envoy \
 	shell-script-example/build-$(ACAP_BUILD_IMPL)/_envoy \
-	using-opencv/build-$(ACAP_BUILD_IMPL)/_envoy \
 	utility-libraries/custom_lib_example/build-$(ACAP_BUILD_IMPL)/_envoy \
-	utility-libraries/openssl_curl_example/build-$(ACAP_BUILD_IMPL)/_envoy \
 	vapix/build-$(ACAP_BUILD_IMPL)/_envoy \
 	vdo-opencl-filtering/build-$(ACAP_BUILD_IMPL)/_envoy \
 	web-server-using-fastcgi/build-$(ACAP_BUILD_IMPL)/_envoy \
@@ -66,6 +63,11 @@ APPS := \
 	bounding-box/build-$(ACAP_BUILD_IMPL)/_envoy \
 	message-broker/consume-scene-metadata/build-$(ACAP_BUILD_IMPL)/_envoy \
 	remote-debug-example/build-$(ACAP_BUILD_IMPL)/_envoy
+
+# TODO: Consider making these reproducible
+#  - curl-openssl/build-$(ACAP_BUILD_IMPL)/_envoy \
+#  - using-opencv/build-$(ACAP_BUILD_IMPL)/_envoy \
+#  - utility-libraries/openssl_curl_example/build-$(ACAP_BUILD_IMPL)/_envoy \
 
 checksums-$(ACAP_BUILD_IMPL): $(APPS)
 	find $(^D) -name '*.eap' | xargs shasum | sed 's/-$(ACAP_BUILD_IMPL)//' > $@
