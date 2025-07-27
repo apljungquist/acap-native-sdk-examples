@@ -4,7 +4,7 @@ ARG UBUNTU_VERSION=24.04
 ARG REPO=axisecp
 ARG SDK=acap-native-sdk
 
-FROM rust:1.82.0-bullseye AS build
+FROM --platform=linux/amd64 rust:1.82.0-bullseye AS build
 RUN cargo install \
     --locked \
     --git https://github.com/AxisCommunications/acap-rs.git \
